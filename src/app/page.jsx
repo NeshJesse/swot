@@ -1,250 +1,99 @@
-"use client"
-import React, { useState } from 'react';
-import { Card, CardContent } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import Strengths  from '@/components/strength';
-import Weakness from '@/components/weakness';
-import Opportunities from '@/components/Opportunities';
-import Threats from '@/components/Threats';
-import { Heart, ChevronRight, Sparkles } from 'lucide-react';
+import React from "react";
 
-const BaeSWOTOnboarding = () => {
-  const [step, setStep] = useState(0);
-  const [data, setData] = useState({
-    userGender: '',
-    partnerName: '',
-    swot: {
-      strengths: [],
-      weaknesses: [],
-      opportunities: [],
-      threats: []
-    }
-  });
 
-  const [currentInput, setCurrentInput] = useState('');
 
-  const handleGenderSelect = (gender) => {
-    setData({ ...data, userGender: gender });
-    setStep(1);
-  };
+const HeroSection = () => (
+  <section className="py-16 px-4">
+    <div className="max-w-6xl mx-auto text-center">
+      <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
+        Make Smarter <span className="text-pink-600">Dating Decisions</span>
+      </h1>
+      <p className="text-xl md:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto">
+        Whether you're dating, crushing, or scouting potential partners, BaeSWOT helps you analyze compatibility like a pro. No more overlooking red flags! 🚩
+      </p>
+      <button className="bg-pink-600 text-white text-lg px-8 py-4 rounded-full hover:bg-pink-700 transition-colors shadow-lg">
+        Start Your Analysis
+      </button>
+    </div>
+  </section>
+);
 
-  const handleNameSubmit = (e) => {
-    e.preventDefault();
-    if (currentInput.trim()) {
-      setData({ ...data, partnerName: currentInput });
-      setCurrentInput('');
-      setStep(2);
-    }
-  };
+const FeatureCard = ({ title, description, color }) => (
+  <div className={`bg-${color}-50 p-8 rounded-2xl`}>
+    <h3 className={`text-2xl font-bold text-${color}-700 mb-4`}>{title}</h3>
+    <p className="text-gray-700">{description}</p>
+  </div>
+);
 
-  const addSWOTItem = (category) => {
-    if (currentInput.trim()) {
-      setData({
-        ...data,
-        swot: {
-          ...data.swot,
-          [category]: [...data.swot[category], currentInput]
-        }
-      });
-      setCurrentInput('');
-    }
-  };
+const FeaturesGrid = () => (
+  <section className="py-16 bg-white">
+    <div className="max-w-6xl mx-auto px-4">
+      <div className="grid md:grid-cols-2 gap-8">
+        <FeatureCard title="Strengths" description="Identify what makes them special. From their amazing cooking skills to their emotional intelligence." color="green" />
+        <FeatureCard title="Weaknesses" description="Spot potential deal-breakers early. Know what you're getting into and if it's worth it." color="red" />
+        <FeatureCard title="Opportunities" description="See the potential for growth together. Discover shared goals and future possibilities." color="blue" />
+        <FeatureCard title="Threats" description="Evaluate external challenges. From demanding schedules to different life goals." color="yellow" />
+      </div>
+    </div>
+  </section>
+);
 
-  const renderStep = () => {
-    switch (step) {
-      case 0:
-        return (
-          <div className="space-y-6 text-center">
-            <div className="flex justify-center">
-              <Heart className="h-16 w-16 text-pink-500" />
-            </div>
-            <h2 className="text-2xl font-bold">Welcome to BaeSWOT!</h2>
-            <p className="text-gray-600">Let's analyze your relationship in a fun way!</p>
-            <div className="space-y-2">
-              <Button 
-                className="w-full"
-                onClick={() => handleGenderSelect('male')}
-              >
-                I'm analyzing my boyfriend
-              </Button>
-              <Button 
-                className="w-full"
-                onClick={() => handleGenderSelect('female')}
-              >
-                I'm analyzing my girlfriend
-              </Button>
-            </div>
-          </div>
-        );
+const StepCard = ({ step, title, description }) => (
+  <div>
+    <div className="w-16 h-16 bg-pink-100 rounded-full flex items-center justify-center mx-auto mb-4">
+      <span className="text-2xl">{step}</span>
+    </div>
+    <h3 className="text-xl font-bold mb-2">{title}</h3>
+    <p className="text-gray-600">{description}</p>
+  </div>
+);
 
-      case 1:
-        return (
-          <form onSubmit={handleNameSubmit} className="space-y-4">
-            <div className="text-center">
-              <h2 className="text-xl font-bold mb-2">What's their name?</h2>
-              <p className="text-gray-600">Let's make this personal!</p>
-            </div>
-            <Input
-              value={currentInput}
-              onChange={(e) => setCurrentInput(e.target.value)}
-              placeholder="Enter their name"
-              className="text-center text-lg"
-              autoFocus
-            />
-            <Button type="submit" className="w-full">
-              Continue <ChevronRight className="ml-2 h-4 w-4" />
-            </Button>
-          </form>
-        );
+const HowItWorks = () => (
+  <section className="py-16 px-4">
+    <div className="max-w-6xl mx-auto">
+      <h2 className="text-3xl font-bold text-center mb-12">How It Works</h2>
+      <div className="grid md:grid-cols-3 gap-8 text-center">
+        <StepCard step="1️⃣" title="Enter Their Name" description="Start with the basics. No account needed, just jump right in!" />
+        <StepCard step="2️⃣" title="Add Your Insights" description="Quick and easy analysis with helpful prompts and suggestions." />
+        <StepCard step="3️⃣" title="Get Clarity" description="See the bigger picture and make informed decisions about your love life." />
+      </div>
+    </div>
+  </section>
+);
 
-      case 2:
-        return (
-          <div className="space-y-4">
-            <div className="text-center">
-              <h2 className="text-xl font-bold">Tell us about {data.partnerName}!</h2>
-              <p className="text-gray-600">Quick! What comes to mind?</p>
-            </div>
-            <div className="grid grid-cols-2 gap-4">
-              <Card className="p-4 bg-green-50 hover:bg-green-100 cursor-pointer transition"
-                onClick={() => setStep(3)}>
-                <h3 className="font-bold text-green-700">Strengths</h3>
-                <p className="text-sm text-green-600">What makes them amazing?</p>
-              </Card>
-              <Card className="p-4 bg-red-50 hover:bg-red-100 cursor-pointer transition"
-                onClick={() => setStep(4)}>
-                <h3 className="font-bold text-red-700">Weaknesses</h3>
-                <p className="text-sm text-red-600">Areas for growth?</p>
-              </Card>
-              <Card className="p-4 bg-blue-50 hover:bg-blue-100 cursor-pointer transition"
-                onClick={() => setStep(5)}>
-                <h3 className="font-bold text-blue-700">Opportunities</h3>
-                <p className="text-sm text-blue-600">Future potential?</p>
-              </Card>
-              <Card className="p-4 bg-yellow-50 hover:bg-yellow-100 cursor-pointer transition"
-                onClick={() => setStep(6)}>
-                <h3 className="font-bold text-yellow-700">Threats</h3>
-                <p className="text-sm text-yellow-600">What worries you?</p>
-              </Card>
-            </div>
-          </div>
-        );
+const CTASection = () => (
+  <section className="py-16 bg-pink-50">
+    <div className="max-w-6xl mx-auto px-4 text-center">
+      <h2 className="text-3xl font-bold mb-6">Ready to Level Up Your Dating Game?</h2>
+      <p className="text-xl text-gray-600 mb-8">
+        Whether you're single, dating, or just curious - BaeSWOT helps you make smarter romantic decisions.
+      </p>
+      <button className="bg-pink-600 text-white text-lg px-8 py-4 rounded-full hover:bg-pink-700 transition-colors shadow-lg">
+        Start Your Free Analysis
+      </button>
+    </div>
+  </section>
+);
 
-      case 3:
-        return (
-          <Strengths
-          strengths={data.swot.strengths}
-          onAddStrength={(strength) => {
-            setData({
-              ...data,
-              swot: {
-                ...data.swot,
-                strengths: [...data.swot.strengths, strength]
-              }
-            });
-          }}
-          onDeleteStrength={(index) => {
-            setData({
-              ...data,
-              swot: {
-                ...data.swot,
-                strengths: data.swot.strengths.filter((_, i) => i !== index)
-              }
-            });
-          }}
-          onBack={() => setStep(2)}
-        />
-  
-        );
-      case 4:
-        return (
-          <Weakness
-              weaknesses={data.swot.weaknesses}
-              onAddWeakness={(weakness) => {
-                setData({
-                  ...data,
-                  swot: {
-                    ...data.swot,
-                    weaknesses: [...data.swot.weaknesses, weakness]
-                  }
-                });
-              }}
-              onDeleteWeakness={(index) => {
-                setData({
-                  ...data,
-                  swot: {
-                    ...data.swot,
-                    weaknesses: data.swot.weaknesses.filter((_, i) => i !== index)
-                  }
-                });
-              }}
-              onBack={() => setStep(2)}
-          />
-        );
-      case 5:
-          return (
-                <Opportunities
-                      opportunities={data.swot.opportunities}
-                      onAddOpportunity={(opportunity) => {
-                          setData({
-          ...data,
-          swot: {
-            ...data.swot,
-            opportunities: [...data.swot.opportunities, opportunity]
-          }
-        });
-      }}
-      onDeleteOpportunity={(index) => {
-        setData({
-          ...data,
-          swot: {
-            ...data.swot,
-            opportunities: data.swot.opportunities.filter((_, i) => i !== index)
-          }
-        });
-      }}
-      onBack={() => setStep(2)}
-    />
-  );
+const Footer = () => (
+  <footer className="bg-gray-50 py-8">
+    <div className="max-w-6xl mx-auto px-4 text-center text-gray-600">
+      <p>© 2025 BaeSWOT - Make smarter dating decisions 💕</p>
+    </div>
+  </footer>
+);
 
-case 6:
-  return (
-    <Threats
-      threats={data.swot.threats}
-      onAddThreat={(threat) => {
-        setData({
-          ...data,
-          swot: {
-            ...data.swot,
-            threats: [...data.swot.threats, threat]
-          }
-        });
-      }}
-      onDeleteThreat={(index) => {
-        setData({
-          ...data,
-          swot: {
-            ...data.swot,
-            threats: data.swot.threats.filter((_, i) => i !== index)
-          }
-        });
-      }}
-      onBack={() => setStep(2)}
-    />
-  ); 
-        
-        
-  }
-  
-  };
+const LandingPage = () => (
+  <div className="bg-gradient-to-b from-pink-50 to-white min-h-screen">
+   
+    <main>
+      <HeroSection />
+      <FeaturesGrid />
+      <HowItWorks />
+      <CTASection />
+    </main>
+    <Footer />
+  </div>
+);
 
-  return (
-    <Card className="w-full max-w-md mx-auto">
-      <CardContent className="p-6">
-        {renderStep()}
-      </CardContent>
-    </Card>
-  );
-};
-
-export default BaeSWOTOnboarding;
+export default LandingPage;

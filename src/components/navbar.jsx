@@ -1,21 +1,17 @@
 import React from 'react';
 
-const Navbar = () => {
-  return (
-    <nav className="w-full bg-white shadow-md p-4 flex justify-between items-center">
-      <div className="flex items-center gap-4">
-        
-        <span className="text-xl font-semibold text-black">
-          BaeSWOT
-        </span>
+
+const Navbar = () => (
+  <nav className="bg-white shadow-sm">
+    <div className="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
+      <div className="flex items-center space-x-2">
+        <span className="text-2xl font-bold text-pink-600">💕 BaeSWOT</span>
       </div>
-      <ul className="flex gap-6 text-gray-700">
-        <li><a href="/" className="hover:text-blue-500">Home</a></li>
-        <li><a href="#features" className="hover:text-blue-500">Features</a></li>
-        
-      </ul>
-    </nav>
-  );
-};
+      <button className="bg-pink-600 text-white px-6 py-2 rounded-full hover:bg-pink-700 transition-colors">
+        Try Now
+      </button>
+    </div>
+  </nav>
+);
 
 export default Navbar;
