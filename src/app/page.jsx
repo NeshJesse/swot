@@ -5,6 +5,8 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import Strengths  from '@/components/strength';
 import Weakness from '@/components/weakness';
+import Opportunities from '@/components/Opportunities';
+import Threats from '@/components/Threats';
 import { Heart, ChevronRight, Sparkles } from 'lucide-react';
 
 const BaeSWOTOnboarding = () => {
@@ -179,7 +181,57 @@ const BaeSWOTOnboarding = () => {
               onBack={() => setStep(2)}
           />
         );
-        
+      case 5:
+          return (
+                <Opportunities
+                      opportunities={data.swot.opportunities}
+                      onAddOpportunity={(opportunity) => {
+                          setData({
+          ...data,
+          swot: {
+            ...data.swot,
+            opportunities: [...data.swot.opportunities, opportunity]
+          }
+        });
+      }}
+      onDeleteOpportunity={(index) => {
+        setData({
+          ...data,
+          swot: {
+            ...data.swot,
+            opportunities: data.swot.opportunities.filter((_, i) => i !== index)
+          }
+        });
+      }}
+      onBack={() => setStep(2)}
+    />
+  );
+
+case 6:
+  return (
+    <Threats
+      threats={data.swot.threats}
+      onAddThreat={(threat) => {
+        setData({
+          ...data,
+          swot: {
+            ...data.swot,
+            threats: [...data.swot.threats, threat]
+          }
+        });
+      }}
+      onDeleteThreat={(index) => {
+        setData({
+          ...data,
+          swot: {
+            ...data.swot,
+            threats: data.swot.threats.filter((_, i) => i !== index)
+          }
+        });
+      }}
+      onBack={() => setStep(2)}
+    />
+  ); 
         
         
   }
