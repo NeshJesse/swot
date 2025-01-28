@@ -119,6 +119,6 @@ const Strengths = ({
   );
 };
 
-export default Strengths;
+export default  Strengths;
 
 // Add this to your global CSS file

@@ -3,7 +3,8 @@ import React, { useState } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import Strength from '@/components/strength';
+import Strengths  from '@/components/strength';
+import Weakness from '@/components/weakness';
 import { Heart, ChevronRight, Sparkles } from 'lucide-react';
 
 const BaeSWOTOnboarding = () => {
@@ -153,7 +154,36 @@ const BaeSWOTOnboarding = () => {
         />
   
         );
-    }
+      case 4:
+        return (
+          <Weakness
+              weaknesses={data.swot.weaknesses}
+              onAddWeakness={(weakness) => {
+                setData({
+                  ...data,
+                  swot: {
+                    ...data.swot,
+                    weaknesses: [...data.swot.weaknesses, weakness]
+                  }
+                });
+              }}
+              onDeleteWeakness={(index) => {
+                setData({
+                  ...data,
+                  swot: {
+                    ...data.swot,
+                    weaknesses: data.swot.weaknesses.filter((_, i) => i !== index)
+                  }
+                });
+              }}
+              onBack={() => setStep(2)}
+          />
+        );
+        
+        
+        
+  }
+  
   };
 
   return (

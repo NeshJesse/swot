@@ -4,13 +4,9 @@ const Navbar = () => {
   return (
     <nav className="w-full bg-white shadow-md p-4 flex justify-between items-center">
       <div className="flex items-center gap-4">
-        <img
-          src="/jkuat-logo.png"
-          alt="School Logo"
-          className="h-10 w-auto"
-        />
-        <span className="text-xl font-semibold text-blue-600">
-          JKUAT Clubs & Socities Platform
+        
+        <span className="text-xl font-semibold text-black">
+          BaeSWOT
         </span>
       </div>
       <ul className="flex gap-6 text-gray-700">
