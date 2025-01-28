@@ -1,17 +1,16 @@
 import React from "react";
 
 
-
 const HeroSection = () => (
   <section className="py-16 px-4">
     <div className="max-w-6xl mx-auto text-center">
       <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
-        Make Smarter <span className="text-pink-600">Dating Decisions</span>
+        Make Smarter <span className="text-indigo-600">Dating Decisions</span>
       </h1>
       <p className="text-xl md:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto">
         Whether you're dating, crushing, or scouting potential partners, BaeSWOT helps you analyze compatibility like a pro. No more overlooking red flags! 🚩
       </p>
-      <button className="bg-pink-600 text-white text-lg px-8 py-4 rounded-full hover:bg-pink-700 transition-colors shadow-lg">
+      <button className="bg-indigo-600 text-white text-lg px-8 py-4 rounded-full hover:bg-indigo-700 transition-colors shadow-lg">
         Start Your Analysis
       </button>
     </div>
@@ -40,7 +39,7 @@ const FeaturesGrid = () => (
 
 const StepCard = ({ step, title, description }) => (
   <div>
-    <div className="w-16 h-16 bg-pink-100 rounded-full flex items-center justify-center mx-auto mb-4">
+    <div className="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center mx-auto mb-4">
       <span className="text-2xl">{step}</span>
     </div>
     <h3 className="text-xl font-bold mb-2">{title}</h3>
@@ -62,13 +61,13 @@ const HowItWorks = () => (
 );
 
 const CTASection = () => (
-  <section className="py-16 bg-pink-50">
+  <section className="py-16 bg-indigo-50">
     <div className="max-w-6xl mx-auto px-4 text-center">
       <h2 className="text-3xl font-bold mb-6">Ready to Level Up Your Dating Game?</h2>
       <p className="text-xl text-gray-600 mb-8">
         Whether you're single, dating, or just curious - BaeSWOT helps you make smarter romantic decisions.
       </p>
-      <button className="bg-pink-600 text-white text-lg px-8 py-4 rounded-full hover:bg-pink-700 transition-colors shadow-lg">
+      <button className="bg-indigo-600 text-white text-lg px-8 py-4 rounded-full hover:bg-indigo-700 transition-colors shadow-lg">
         Start Your Free Analysis
       </button>
     </div>
@@ -78,14 +77,13 @@ const CTASection = () => (
 const Footer = () => (
   <footer className="bg-gray-50 py-8">
     <div className="max-w-6xl mx-auto px-4 text-center text-gray-600">
-      <p>© 2025 BaeSWOT - Make smarter dating decisions 💕</p>
+      <p>© 2025 BaeSWOT - Make smarter dating decisions 🌟</p>
     </div>
   </footer>
 );
 
 const LandingPage = () => (
-  <div className="bg-gradient-to-b from-pink-50 to-white min-h-screen">
-   
+  <div className="bg-gradient-to-b from-indigo-50 to-white min-h-screen">
     <main>
       <HeroSection />
       <FeaturesGrid />
