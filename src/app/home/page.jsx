@@ -268,7 +268,7 @@ case 7:
         {renderStep()}
       </CardContent>
     </Card>
-    <Footer/>
+   
     </>
   );
 };

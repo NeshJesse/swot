@@ -1,6 +1,6 @@
 import React from "react";
 import MetaTags from '@/components/meta';
-
+import Footer from "@/components/footer";
 <MetaTags/>
 const HeroSection = () => (
   <section className="py-16 px-4">
@@ -78,7 +78,7 @@ const CTASection = () => (
     </div>
   </section>
 );
-
+{/*
 const Footer = () => (
   <footer className="bg-gray-50 py-8">
     <div className="max-w-6xl mx-auto px-4 text-center text-gray-600">
@@ -88,6 +88,7 @@ const Footer = () => (
     </div>
   </footer>
 );
+*/}
 
 const LandingPage = () => (
   <div className="bg-gradient-to-b from-indigo-50 to-white min-h-screen">
@@ -97,7 +98,7 @@ const LandingPage = () => (
       <HowItWorks />
       <CTASection />
     </main>
-    <Footer />
+  
   </div>
 );
 
