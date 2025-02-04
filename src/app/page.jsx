@@ -10,9 +10,11 @@ const HeroSection = () => (
       <p className="text-xl md:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto">
         Whether you're dating, crushing, or scouting potential partners, BaeSWOT helps you analyze compatibility like a pro. No more overlooking red flags! 🚩
       </p>
+      <a href='/home'>
       <button className="bg-indigo-600 text-white text-lg px-8 py-4 rounded-full hover:bg-indigo-700 transition-colors shadow-lg">
         Start Your Analysis
       </button>
+      </a>
     </div>
   </section>
 );
@@ -67,9 +69,11 @@ const CTASection = () => (
       <p className="text-xl text-gray-600 mb-8">
         Whether you're single, dating, or just curious - BaeSWOT helps you make smarter romantic decisions.
       </p>
+      <a href='/home'>
       <button className="bg-indigo-600 text-white text-lg px-8 py-4 rounded-full hover:bg-indigo-700 transition-colors shadow-lg">
         Start Your Free Analysis
       </button>
+      </a>
     </div>
   </section>
 );
@@ -77,7 +81,9 @@ const CTASection = () => (
 const Footer = () => (
   <footer className="bg-gray-50 py-8">
     <div className="max-w-6xl mx-auto px-4 text-center text-gray-600">
-      <p>© 2025 BaeSWOT - Make smarter dating decisions 🌟</p>
+      <p>© 2025 BaeSWOT - Make smarter dating decisions 🌟 Built by 
+        <a href="https://www.instagram.com/itsjesse.nehemiah">Jesse Nehemiah</a>
+      </p>
     </div>
   </footer>
 );

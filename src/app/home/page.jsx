@@ -7,6 +7,8 @@ import Strengths  from '@/components/strength';
 import Weakness from '@/components/weakness';
 import Opportunities from '@/components/opps';
 import Threats from '@/components/threats';
+import SwotResults from '@/components/results';
+
 import { Heart, ChevronRight, Sparkles } from 'lucide-react';
 
 export default function Home  () {
@@ -126,6 +128,7 @@ export default function Home  () {
                 <h3 className="font-bold text-yellow-700">Threats</h3>
                 <p className="text-sm text-yellow-600">What worries you?</p>
               </Card>
+              <Button onClick={() => setStep(7)}>View Analysis Results</Button>
             </div>
           </div>
         );
@@ -232,6 +235,18 @@ case 6:
       onBack={() => setStep(2)}
     />
   ); 
+case 7:
+  return(
+    <>
+      <SwotResults
+      data={data.swot}
+      partnerName={data.partnerName}
+      onBack={() => setStep(2)}
+      onEditSection={(step) => setStep(step)}
+    />
+  
+  </>
+  );
         
         
   }
