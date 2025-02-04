@@ -10,6 +10,7 @@ import Threats from '@/components/threats';
 import SwotResults from '@/components/results';
 
 import { Heart, ChevronRight, Sparkles } from 'lucide-react';
+import Footer from '../../components/footer';
 
 export default function Home  () {
   const [step, setStep] = useState(0);
@@ -261,10 +262,13 @@ case 7:
   };
 
   return (
+    <>
     <Card className="w-full max-w-md mx-auto">
       <CardContent className="p-6">
         {renderStep()}
       </CardContent>
     </Card>
+    <Footer/>
+    </>
   );
 };

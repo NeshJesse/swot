@@ -83,7 +83,7 @@ const Footer = () => (
   <footer className="bg-gray-50 py-8">
     <div className="max-w-6xl mx-auto px-4 text-center text-gray-600">
       <p>© 2025 BaeSWOT - Make smarter dating decisions 🌟 Built by 
-        <a href="https://www.instagram.com/itsjesse.nehemiah">Jesse Nehemiah</a>
+        <a className="text-red-700" href="https://www.instagram.com/itsjesse.nehemiah">Jesse Nehemiah</a>
       </p>
     </div>
   </footer>
