@@ -1,6 +1,7 @@
 import React from "react";
+import MetaTags from '@/components/meta';
 
-
+<MetaTags/>
 const HeroSection = () => (
   <section className="py-16 px-4">
     <div className="max-w-6xl mx-auto text-center">

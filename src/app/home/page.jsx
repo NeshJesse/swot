@@ -76,6 +76,13 @@ export default function Home  () {
               >
                 I'm analyzing my girlfriend
               </Button>
+              <Button
+              className="w-full"
+              onClick={() => handleGenderSelect('female')}
+              >
+
+                Scouting a potential partner
+              </Button>
             </div>
           </div>
         );
